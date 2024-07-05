@@ -17,7 +17,8 @@ Ensure you have the following installed:
 - Python 3.x
 - Flask (`pip install Flask`)
 - Azure Cognitive Services Speech SDK (`pip install azure-cognitiveservices-speech`)
-- Other dependencies listed in `requirements.txt`
+
+For other dependencies, refer to `requirements.txt`.
 
 ## Getting Started
 
@@ -61,6 +62,10 @@ Ensure you have the following installed:
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
 
-You can copy and paste this Markdown content directly into your README.md file in your GitHub repository. Make sure to update any placeholders like `your_api_key` and `your_region` in the `.env` setup section with your actual Azure API key and region information before committing the changes. This README.md file will help users understand your project and get started with using or contributing to it effectively.
+This README.md file now includes the revised Requirements section and a License section, which is standard practice for open-source projects. Adjust the `LICENSE` link accordingly if you have a specific LICENSE file in your project repository.
