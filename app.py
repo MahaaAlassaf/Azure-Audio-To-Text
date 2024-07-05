@@ -1,98 +1,75 @@
-from flask import Flask, request, render_template, redirect, url_for, jsonify, send_file
 import os
-import sys
-import time
+from flask import Flask, render_template, request, redirect, url_for, send_file
+from dotenv import load_dotenv
 import azure.cognitiveservices.speech as speechsdk
-from werkzeug.utils import secure_filename
 
-# Initialize the Flask app
+# Load environment variables from .env file
+load_dotenv()
+
+# Load configuration variables
+api_key = os.getenv("API_KEY")
+region = os.getenv("REGION")
+language = os.getenv("LANGUAGE", "en-US")
+output_path = os.getenv("OUTPUT_PATH", "/Users/mahassaf004/Desktop/output.txt")
+
+# Create Flask app
 app = Flask(__name__)
 
-API_Key = "1626e47dfe994fdeb61fa153aa83fa4a"
-Region = "eastus"
-Output_Path = "/Users/mahassaf004/Desktop/output.txt"
-Language = "en-US"
+# Function to initialize Azure Speech SDK
+def initialize_speech_sdk():
+    """ Initialize Azure Speech SDK client """
+    speech_config = speechsdk.SpeechConfig(subscription=api_key, region=region)
+    audio_config = speechsdk.audio.AudioConfig(use_default_microphone=False)
+    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+    return speech_recognizer
 
-# Configuration check function
-def check_configuration(overwrite: bool, input_path: str) -> None:
-    required_vars = [API_Key, Region, input_path, Output_Path, Language]
-    
-    if not all(required_vars):
-        sys.exit("Missing configuration parameter.")
-    if os.path.isfile(Output_Path) and not overwrite:
-        if input(f"Specified output file already exists: {Output_Path}. Overwrite? (yes/no): ").lower() != 'yes':
-            sys.exit(1)
-
-# Setup speech recognizer
-def setup_speech_recognizer(input_path: str) -> speechsdk.SpeechRecognizer:
-    speech_config = speechsdk.SpeechConfig(subscription=API_Key, region=Region, speech_recognition_language=Language)
-    audio_config = speechsdk.AudioConfig(filename=input_path)
-    return speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
-
-# Recognize speech from audio file
-def recognize_speech(speech_recognizer: speechsdk.SpeechRecognizer) -> list:
-    done = False
-    all_results = []
-
-    def stop_callback(evt):
-        nonlocal done
-        speech_recognizer.stop_continuous_recognition()
-        done = True
-        if evt.result.reason == speechsdk.ResultReason.Canceled:
-            details = evt.result.cancellation_details
-            if details.reason == speechsdk.CancellationReason.Error:
-                print(f"Error code: {details.error_code}\nError details: {details.error_details}")
-
-    speech_recognizer.recognized.connect(lambda evt: all_results.append(evt.result.text))
-    speech_recognizer.session_stopped.connect(stop_callback)
-    speech_recognizer.canceled.connect(stop_callback)
-
-    speech_recognizer.start_continuous_recognition()
-    while not done:
-        time.sleep(2)
-
-    return all_results
-
-# Write recognized text to file
-def write_text_to_file(text_results: list) -> None:
-    try:
-        with open(Output_Path, "w", encoding="utf-8") as output:
-            output.write("\n".join(text_results))
-        print(f"Printed text to {Output_Path}")
-    except Exception as e:
-        print(f"Could not write text into {Output_Path}\n{e}")
-
-# Route for home page and upload
-@app.route('/', methods=['GET', 'POST'])
+# Route for home page
+@app.route('/')
 def home():
+    return render_template('index.html')
+
+# Route for upload page
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
     if request.method == 'POST':
-        if 'file' not in request.files:
+        # Handle file upload
+        if 'audio_file' not in request.files:
             return redirect(request.url)
-        file = request.files['file']
+        
+        file = request.files['audio_file']
+        
         if file.filename == '':
             return redirect(request.url)
+        
         if file:
-            input_path = os.path.join('/tmp', secure_filename(file.filename))
-            file.save(input_path)
-            check_configuration(True, input_path)
-            speech_recognizer = setup_speech_recognizer(input_path)
-            text_results = recognize_speech(speech_recognizer)
-            write_text_to_file(text_results)
-            return redirect(url_for('show_result'))
+            # Save the uploaded file to a temporary location
+            file_path = os.path.join(app.root_path, 'uploads', file.filename)
+            file.save(file_path)
+            
+            # Perform speech-to-text conversion
+            recognizer = initialize_speech_sdk()
+            audio_input = speechsdk.audio.AudioConfig(filename=file_path)
+            result = recognizer.recognize_once_async().get()
+            transcript = result.text
+            
+            # Save transcript to output file
+            with open(output_path, 'w') as f:
+                f.write(transcript)
+            
+            return redirect(url_for('result'))
+    
     return render_template('upload.html')
 
-# Route for showing result
+# Route for result page
 @app.route('/result')
-def show_result():
-    with open(Output_Path, 'r') as file:
-        content = file.read()
-    return render_template('result.html', content=content)
+def result():
+    try:
+        # Read from output file
+        with open(output_path, 'r') as f:
+            transcript = f.read()
+        return render_template('result.html', transcript=transcript)
+    except FileNotFoundError:
+        return "Transcript not found."
 
-# Route for downloading text file
-@app.route('/download')
-def download_file():
-    return send_file(Output_Path, as_attachment=True)
-
-# Run the app
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
