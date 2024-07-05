@@ -1,9 +1,9 @@
-Certainly! Here's the README.md file formatted entirely in Markdown style:
+Certainly! Here's the README.md file formatted in the style you requested:
 
 ```markdown
 # Azure Audio to Text Conversion
 
-## Overview
+![Azure Audio to Text Conversion](https://user-images.githubusercontent.com/86031983/175003761-99ee51cf-9900-45de-af49-9465279eaa39.png)
 
 This project demonstrates converting audio files into text using Azure Cognitive Services Speech SDK within a Flask web application integrated with Azure Speech API.
 
@@ -76,4 +76,4 @@ Contributions are welcome! Fork the repository and submit a pull request with yo
 This project is licensed under the MIT License. See the LICENSE file for details.
 ```
 
-This Markdown format includes headings, subheadings, code blocks, and lists as per standard Markdown syntax, suitable for a README.md file in your project repository.
+This Markdown format includes headings, subheadings, images, code blocks, and lists as per standard Markdown syntax, suitable for a README.md file in your project repository.
