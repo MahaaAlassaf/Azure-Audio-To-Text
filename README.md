@@ -63,10 +63,3 @@ pip install -r requirements.txt
 ## Contributing
 
 Contributions welcome! Fork and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See LICENSE for details.
-```
-
-This version includes markdown syntax for headings, lists, code blocks, and emphasis, suitable for a README.md file. Let me know if there's anything else you need!
