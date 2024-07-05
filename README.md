@@ -1,26 +1,25 @@
 # Azure Audio-to-Text Converter
 
-This project demonstrates a web application for converting audio files to text using Azure Cognitive Services Speech SDK. Users can upload audio files or record audio directly on the website and receive the transcribed text output.
+This project demonstrates a web application for converting audio files to text using Azure Cognitive Services Speech SDK. Users can upload audio files and receive the transcribed text output.
 
 ## Features
 
 - **Upload Audio:** Users can upload audio files in various formats (MP3, WAV, etc.) for conversion.
-- **Record Audio:** Integrated functionality to record audio directly on the web interface.
 - **Azure Cognitive Services:** Utilizes Azure Speech API for converting audio to text.
 - **Download Text:** Option for users to download the transcribed text as a .txt file.
 - **User Interface:** Simple and intuitive UI designed with Bootstrap for easy navigation and usage.
 
-## Requirements
-
-Ensure you have the following installed:
-
-- Python 3.x
-- Flask (`pip install Flask`)
-- Azure Cognitive Services Speech SDK (`pip install azure-cognitiveservices-speech`)
-
-For other dependencies, refer to `requirements.txt`.
-
 ## Getting Started
+
+To get started with this project, ensure you have Python 3.x installed. Then, install the project dependencies listed in `requirements.txt` by running:
+
+```bash
+pip install -r requirements.txt
+```
+
+This will install Flask, Azure Cognitive Services Speech SDK, and other necessary dependencies specified in `requirements.txt`.
+
+Follow these steps to set up and run the application:
 
 1. Clone the repository:
 
@@ -56,16 +55,5 @@ For other dependencies, refer to `requirements.txt`.
 
 ## Usage
 
-- **Upload Page:** Navigate to `http://localhost:5000/upload` to upload an audio file or record audio.
-- **Result Page:** After uploading or recording, view the transcribed text on `http://localhost:5000/result`.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-This README.md file now includes the revised Requirements section and a License section, which is standard practice for open-source projects. Adjust the `LICENSE` link accordingly if you have a specific LICENSE file in your project repository.
+- **Upload Page:** Navigate to `http://localhost:5000/upload` to upload an audio file.
+- **Result Page:** After uploading, view the transcribed text on `http://localhost:5000/result`.
