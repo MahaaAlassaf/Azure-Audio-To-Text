@@ -19,39 +19,37 @@ pip install -r requirements.txt
 
 This will install Flask, Azure Cognitive Services Speech SDK, and other necessary dependencies specified in `requirements.txt`.
 
-Follow these steps to set up and run the application:
+**1. Clone the repository:**
 
-1. Clone the repository:
+```bash
+git clone https://github.com/MahaaAlassaf/Azure-Audio-To-Text.git
+cd Azure-Audio-To-Text
+```
 
-   ```bash
-   git clone https://github.com/MahaaAlassaf/Azure-Audio-To-Text.git
-   cd Azure-Audio-To-Text
-   ```
+**2. Install dependencies:**
 
-2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+**3. Set up Azure Cognitive Services:**
+- Sign up for Azure and create a Speech service resource.
+- Obtain the API key and region information.
+- Update `.env` file with your API key and region:
 
-3. Set up Azure Cognitive Services:
-   - Sign up for Azure and create a Speech service resource.
-   - Obtain the API key and region information.
-   - Update `.env` file with your API key and region:
+  ```
+  API_KEY=your_api_key
+  REGION=your_region
+  LANGUAGE=en-US
+  ```
 
-     ```
-     API_KEY=your_api_key
-     REGION=your_region
-     LANGUAGE=en-US
-     ```
+**4. Run the application:**
 
-4. Run the application:
+```bash
+python app.py
+```
 
-   ```bash
-   python app.py
-   ```
-
-5. Open your web browser and go to `http://localhost:5000` to use the application.
+**5. Open your web browser and go to `http://localhost:5000` to use the application.**
 
 ## Usage
 
