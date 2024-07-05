@@ -48,10 +48,3 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
-
-**5. Open your web browser and go to `http://localhost:5000` to use the application.**
-
-## Usage
-
-- **Upload Page:** Navigate to `http://localhost:5000/upload` to upload an audio file.
-- **Result Page:** After uploading, view the transcribed text on `http://localhost:5000/result`.
