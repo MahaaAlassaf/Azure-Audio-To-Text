@@ -1,3 +1,5 @@
+Here's the revised README.md formatted in Markdown:
+
 ```markdown
 # Azure Audio to Text Conversion
 
@@ -74,4 +76,4 @@ Contributions are welcome! Fork the repository and submit a pull request with yo
 This project is licensed under the MIT License. See the LICENSE file for details.
 ```
 
-This Markdown format includes headings, subheadings, images, code blocks, and lists as per standard Markdown syntax, suitable for a README.md file in your project repository.
+Let me know if you need any further adjustments or additions!
