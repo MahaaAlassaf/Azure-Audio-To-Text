@@ -1,5 +1,3 @@
-Here's the revised README.md formatted in Markdown:
-
 ```markdown
 # Azure Audio to Text Conversion
 
