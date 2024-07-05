@@ -1,6 +1,3 @@
-Certainly! Here's the updated section with a more streamlined and cleaner format:
-
-```markdown
 # Azure Audio to Text Conversion
 
 This project converts audio files into text using Azure Cognitive Services Speech SDK within a Flask web application integrated with Azure Speech API.
@@ -72,4 +69,4 @@ Contributions welcome! Fork and submit a pull request.
 This project is licensed under the MIT License. See LICENSE for details.
 ```
 
-This format focuses on clarity and conciseness while maintaining all necessary information. Let me know if there's anything else you'd like to adjust!
+This version includes markdown syntax for headings, lists, code blocks, and emphasis, suitable for a README.md file. Let me know if there's anything else you need!
