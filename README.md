@@ -1,7 +1,3 @@
-Certainly! Here's the revised README.md text with the technologies discussed after the features section:
-
----
-
 # Azure Audio to Text Conversion
 
 Convert audio files into text using Azure Cognitive Services Speech SDK within a Flask web application integrated with Azure Speech API.
