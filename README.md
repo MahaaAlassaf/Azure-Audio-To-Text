@@ -1,6 +1,6 @@
 # Azure Audio-to-Text Converter
 
-This project demonstrates a web application for converting audio files to text using Azure Cognitive Services Speech SDK. Users can upload audio files and receive the transcribed text output.
+This project is a web application for converting audio files to text using Azure Cognitive Services Speech SDK. Users can upload audio files and receive the transcribed text output.
 
 ## Features
 
