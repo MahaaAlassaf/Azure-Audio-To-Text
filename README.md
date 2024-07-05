@@ -1,5 +1,3 @@
-Certainly! Here's the README.md file formatted in the style you requested:
-
 ```markdown
 # Azure Audio to Text Conversion
 
