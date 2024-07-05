@@ -1,79 +1,50 @@
-# Azure Audio to Text Conversion
+# Azure Audio-to-Text Converter
 
-Convert audio files into text using Azure Cognitive Services Speech SDK within a Flask web application integrated with Azure Speech API.
+This project is a web application for converting audio files to text using Azure Cognitive Services Speech SDK. Users can upload audio files and receive the transcribed text output.
 
 ## Features
 
-- **Upload Audio:** Easily upload audio files for conversion to text.
-- **Speech-to-Text Conversion:** Utilizes Azure Cognitive Services Speech SDK for accurate transcription.
-- **User-Friendly Interface:** Simple web interface for seamless user experience.
+- **Upload Audio:** Users can upload audio files in various formats (MP3, WAV, etc.) for conversion.
+- **Azure Cognitive Services:** Utilizes Azure Speech API for converting audio to text.
+- **Download Text:** Option for users to download the transcribed text as a .txt file.
+- **User Interface:** Simple and intuitive UI designed with Bootstrap for easy navigation and usage.
 
-## Technologies Used
+## Getting Started
 
-- **Python:** Utilizes Flask, a Python web framework, for backend development.
-- **Azure Cognitive Services:** Speech SDK for converting speech into text.
-- **HTML/CSS:** Bootstrap framework for responsive and intuitive web interface design.
-- **Git:** Version control and collaboration using GitHub.
+To get started with this project, ensure you have Python 3.x installed. Then, install the project dependencies listed in `requirements.txt` by running:
 
-## How to Use
+```bash
+pip install -r requirements.txt
+```
 
-### Installation
+This will install Flask, Azure Cognitive Services Speech SDK, and other necessary dependencies specified in `requirements.txt`.
 
-1. **Clone the repository:**
+**1. Clone the repository:**
 
-   ```bash
-   git clone https://github.com/MahaaAlassaf/Azure-Audio-To-Text.git
-   cd Azure-Audio-To-Text
-   ```
+```bash
+git clone https://github.com/MahaaAlassaf/Azure-Audio-To-Text.git
+cd Azure-Audio-To-Text
+```
 
-2. **Install dependencies:**
+**2. Install dependencies:**
 
-   Use `pip` to install required Python packages:
+```bash
+pip install -r requirements.txt
+```
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+**3. Set up Azure Cognitive Services:**
+- Sign up for Azure and create a Speech service resource.
+- Obtain the API key and region information.
+- Update `.env` file with your API key and region:
 
-3. **Azure Cognitive Services Setup:**
+  ```
+  API_KEY=your_api_key
+  REGION=your_region
+  LANGUAGE=en-US
+  ```
 
-   - Create a Speech service resource in Azure.
-   - Obtain your API key and region.
-   - Update `.env` file with your API key and region details:
+**4. Run the application:**
 
-     ```
-     API_KEY=<your_azure_api_key>
-     REGION=<azure_region>
-     LANGUAGE=en-US
-     ```
-
-     Replace `<your_azure_api_key>` and `<azure_region>` with your actual API key and service region.
-
-### Usage
-
-1. **Run the application:**
-
-   ```bash
-   python app.py
-   ```
-
-2. **Access the web application:**
-
-   Open `http://localhost:5000` in your browser.
-
-3. **Upload an audio file:**
-
-   - Select an audio file for conversion.
-   - Wait for the file to be processed.
-
-4. **View and download the converted text:**
-
-   - Once processed, view the converted text on the result page.
-   - Download the text file if needed.
-
-## Contributing
-
-Contributions are welcome! Fork the repository and submit a pull request with your enhancements.
-
----
-
-This structure ensures that users understand the project's capabilities and technologies used, followed by clear instructions on how to install, use, and contribute to the project.
+```bash
+python app.py
+```
