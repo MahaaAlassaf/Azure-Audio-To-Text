@@ -1,79 +1,69 @@
-# Azure Audio to Text Conversion
+Certainly! Here is the Markdown content for your README.md file:
 
-Convert audio files into text using Azure Cognitive Services Speech SDK within a Flask web application integrated with Azure Speech API.
+```markdown
+# Azure Audio-to-Text Converter
+
+This project demonstrates a web application for converting audio files to text using Azure Cognitive Services Speech SDK. Users can upload audio files or record audio directly on the website and receive the transcribed text output.
 
 ## Features
 
-- **Upload Audio:** Easily upload audio files for conversion to text.
-- **Speech-to-Text Conversion:** Utilizes Azure Cognitive Services Speech SDK for accurate transcription.
-- **User-Friendly Interface:** Simple web interface for seamless user experience.
+- **Upload Audio:** Users can upload audio files in various formats (MP3, WAV, etc.) for conversion.
+- **Record Audio:** Integrated functionality to record audio directly on the web interface.
+- **Azure Cognitive Services:** Utilizes Azure Speech API for converting audio to text.
+- **Download Text:** Option for users to download the transcribed text as a .txt file.
+- **User Interface:** Simple and intuitive UI designed with Bootstrap for easy navigation and usage.
 
-## Technologies Used
+## Requirements
 
-- **Python:** Utilizes Flask, a Python web framework, for backend development.
-- **Azure Cognitive Services:** Speech SDK for converting speech into text.
-- **HTML/CSS:** Bootstrap framework for responsive and intuitive web interface design.
-- **Git:** Version control and collaboration using GitHub.
+Ensure you have the following installed:
 
-## How to Use
+- Python 3.x
+- Flask (`pip install Flask`)
+- Azure Cognitive Services Speech SDK (`pip install azure-cognitiveservices-speech`)
+- Other dependencies listed in `requirements.txt`
 
-### Installation
+## Getting Started
 
-1. **Clone the repository:**
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/MahaaAlassaf/Azure-Audio-To-Text.git
    cd Azure-Audio-To-Text
    ```
 
-2. **Install dependencies:**
-
-   Use `pip` to install required Python packages:
+2. Install dependencies:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Azure Cognitive Services Setup:**
-
-   - Create a Speech service resource in Azure.
-   - Obtain your API key and region.
-   - Update `.env` file with your API key and region details:
+3. Set up Azure Cognitive Services:
+   - Sign up for Azure and create a Speech service resource.
+   - Obtain the API key and region information.
+   - Update `.env` file with your API key and region:
 
      ```
-     API_KEY=<your_azure_api_key>
-     REGION=<azure_region>
+     API_KEY=your_api_key
+     REGION=your_region
      LANGUAGE=en-US
      ```
 
-     Replace `<your_azure_api_key>` and `<azure_region>` with your actual API key and service region.
-
-### Usage
-
-1. **Run the application:**
+4. Run the application:
 
    ```bash
    python app.py
    ```
 
-2. **Access the web application:**
+5. Open your web browser and go to `http://localhost:5000` to use the application.
 
-   Open `http://localhost:5000` in your browser.
+## Usage
 
-3. **Upload an audio file:**
-
-   - Select an audio file for conversion.
-   - Wait for the file to be processed.
-
-4. **View and download the converted text:**
-
-   - Once processed, view the converted text on the result page.
-   - Download the text file if needed.
+- **Upload Page:** Navigate to `http://localhost:5000/upload` to upload an audio file or record audio.
+- **Result Page:** After uploading or recording, view the transcribed text on `http://localhost:5000/result`.
 
 ## Contributing
 
-Contributions are welcome! Fork the repository and submit a pull request with your enhancements.
+Contributions are welcome! Please fork the repository and submit a pull request.
+```
 
----
-
-This structure ensures that users understand the project's capabilities and technologies used, followed by clear instructions on how to install, use, and contribute to the project.
+You can copy and paste this Markdown content directly into your README.md file in your GitHub repository. Make sure to update any placeholders like `your_api_key` and `your_region` in the `.env` setup section with your actual Azure API key and region information before committing the changes. This README.md file will help users understand your project and get started with using or contributing to it effectively.
